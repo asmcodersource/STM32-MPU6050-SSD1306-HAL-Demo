@@ -1,1 +1,5 @@
-../Core/Src/UI/OrthogonalScreen.c:12:6:displayOrthogonalScreen	8	static
+../Core/Src/UI/OrthogonalScreen.c:19:6:displayOrthogonalScreen	240	static
+../Core/Src/UI/OrthogonalScreen.c:89:8:getActualValue	16	static
+../Core/Src/UI/OrthogonalScreen.c:100:8:normalizedAngleVectorX	16	static
+../Core/Src/UI/OrthogonalScreen.c:104:8:normalizedAngleVectorY	16	static
+../Core/Src/UI/OrthogonalScreen.c:108:8:radians	16	static

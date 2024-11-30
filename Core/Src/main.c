@@ -60,6 +60,10 @@ void SystemClock_Config(void);
 #include "UI/CombinedScreen.h"
 #include "UI/OrthogonalScreen.h"
 #include "UI/ValuesScreen.h"
+
+#define BUTTON_DEBOUNCE_DELAY 50
+
+int buttonPressed(void);
 /* USER CODE END 0 */
 
 /**
@@ -71,6 +75,7 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
   MPU6050_t MPU6050;
+  int currentScreen = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -108,8 +113,28 @@ int main(void)
 	MPU6050_Read_All(&hi2c2, &MPU6050);
 	HAL_Delay (100);
 
+	if (buttonPressed()) {
+		currentScreen++;
+		if (currentScreen > 3) {
+			currentScreen = 0;
+		}
+	}
+
 	ssd1306_Fill(Black);
-	displayValuesScreen(MPU6050);
+	switch(currentScreen){
+		case 0:
+			displayOrthogonalScreen(MPU6050, X);
+			break;
+		case 1:
+			displayOrthogonalScreen(MPU6050, Y);
+			break;
+		case 2:
+			displayValuesScreen(MPU6050);
+			break;
+		case 3:
+			displayCombinedScreen(MPU6050);
+			break;
+	}
 	ssd1306_UpdateScreen();
   }
   /* USER CODE END 3 */
@@ -155,7 +180,20 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+int buttonPressed(void) {
+    static uint8_t lastButtonState = GPIO_PIN_SET;
+    uint8_t currentButtonState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12);
 
+
+    if (lastButtonState == GPIO_PIN_SET && currentButtonState == GPIO_PIN_RESET) {
+        HAL_Delay(BUTTON_DEBOUNCE_DELAY);
+        lastButtonState = currentButtonState;
+        return 1;
+    }
+
+    lastButtonState = currentButtonState;
+    return 0;
+}
 /* USER CODE END 4 */
 
 /**

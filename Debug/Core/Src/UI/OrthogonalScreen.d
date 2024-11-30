@@ -24,7 +24,8 @@ Core/Src/UI/OrthogonalScreen.o: ../Core/Src/UI/OrthogonalScreen.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h
+ ../Core/Inc/ssd1306.h ../Core/Inc/ssd1306_conf.h \
+ ../Core/Inc/ssd1306_fonts.h ../Core/Inc/ssd1306.h
 ../Core/Inc/UI/OrthogonalScreen.h:
 ../Core/Inc/mpu6050.h:
 ../Core/Inc/i2c.h:
@@ -54,3 +55,5 @@ Core/Src/UI/OrthogonalScreen.o: ../Core/Src/UI/OrthogonalScreen.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Core/Inc/ssd1306.h:
 ../Core/Inc/ssd1306_conf.h:
+../Core/Inc/ssd1306_fonts.h:
+../Core/Inc/ssd1306.h:
