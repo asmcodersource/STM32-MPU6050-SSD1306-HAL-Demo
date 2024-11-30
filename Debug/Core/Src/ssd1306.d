@@ -1,4 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Core/Src/ssd1306.o: ../Core/Src/ssd1306.c ../Core/Inc/ssd1306.h \
+ ../Core/Inc/ssd1306_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -21,13 +22,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/gpio.h \
- ../Core/Inc/mpu6050.h ../Core/Inc/i2c.h ../Core/Inc/ssd1306.h \
- ../Core/Inc/ssd1306_conf.h ../Core/Inc/ssd1306_fonts.h \
- ../Core/Inc/ssd1306.h ../Core/Inc/UI/CombinedScreen.h \
- ../Core/Inc/UI/OrthogonalScreen.h ../Core/Inc/UI/ValuesScreen.h
-../Core/Inc/main.h:
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+../Core/Inc/ssd1306.h:
+../Core/Inc/ssd1306_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -51,15 +48,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
-../Core/Inc/i2c.h:
-../Core/Inc/main.h:
-../Core/Inc/gpio.h:
-../Core/Inc/mpu6050.h:
-../Core/Inc/i2c.h:
-../Core/Inc/ssd1306.h:
-../Core/Inc/ssd1306_conf.h:
-../Core/Inc/ssd1306_fonts.h:
-../Core/Inc/ssd1306.h:
-../Core/Inc/UI/CombinedScreen.h:
-../Core/Inc/UI/OrthogonalScreen.h:
-../Core/Inc/UI/ValuesScreen.h:

@@ -44,7 +44,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -55,7 +54,12 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+#include "mpu6050.h"
+#include "ssd1306.h"
+#include "ssd1306_fonts.h"
+#include "UI/CombinedScreen.h"
+#include "UI/OrthogonalScreen.h"
+#include "UI/ValuesScreen.h"
 /* USER CODE END 0 */
 
 /**
@@ -66,7 +70,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  MPU6050_t MPU6050;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -90,7 +94,8 @@ int main(void)
   MX_I2C1_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-
+  while (MPU6050_Init(&hi2c2) == 1);
+  ssd1306_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,6 +105,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	MPU6050_Read_All(&hi2c2, &MPU6050);
+	HAL_Delay (100);
+
+	ssd1306_Fill(Black);
+	displayValuesScreen(MPU6050);
+	ssd1306_UpdateScreen();
   }
   /* USER CODE END 3 */
 }

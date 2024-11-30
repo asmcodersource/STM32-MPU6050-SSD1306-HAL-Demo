@@ -5,6 +5,9 @@
  *      Author: Bulanov Konstantin
  */
 
+#ifndef INC_MPU6050_H_
+#define INC_MPU6050_H_
+
 #ifndef INC_GY521_H_
 #define INC_GY521_H_
 
@@ -59,3 +62,5 @@ void MPU6050_Read_Temp(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct);
 void MPU6050_Read_All(I2C_HandleTypeDef *I2Cx, MPU6050_t *DataStruct);
 
 double Kalman_getAngle(Kalman_t *Kalman, double newAngle, double newRate, double dt);
+
+#endif

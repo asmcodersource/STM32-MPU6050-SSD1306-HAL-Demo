@@ -1,0 +1,3 @@
+../Core/Src/UI/ValuesScreen.c:21:6:displayValuesScreen	2
+../Core/Src/UI/ValuesScreen.c:47:13:getSensorPropertyStringValue	13
+../Core/Src/UI/ValuesScreen.c:93:13:getSensorPropertyStringIdentifier	13
