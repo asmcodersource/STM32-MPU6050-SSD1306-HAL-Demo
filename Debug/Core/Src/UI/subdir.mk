@@ -5,17 +5,14 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/UI/CombinedScreen.c \
 ../Core/Src/UI/OrthogonalScreen.c \
 ../Core/Src/UI/ValuesScreen.c 
 
 OBJS += \
-./Core/Src/UI/CombinedScreen.o \
 ./Core/Src/UI/OrthogonalScreen.o \
 ./Core/Src/UI/ValuesScreen.o 
 
 C_DEPS += \
-./Core/Src/UI/CombinedScreen.d \
 ./Core/Src/UI/OrthogonalScreen.d \
 ./Core/Src/UI/ValuesScreen.d 
 
@@ -27,7 +24,7 @@ Core/Src/UI/%.o Core/Src/UI/%.su Core/Src/UI/%.cyclo: ../Core/Src/UI/%.c Core/Sr
 clean: clean-Core-2f-Src-2f-UI
 
 clean-Core-2f-Src-2f-UI:
-	-$(RM) ./Core/Src/UI/CombinedScreen.cyclo ./Core/Src/UI/CombinedScreen.d ./Core/Src/UI/CombinedScreen.o ./Core/Src/UI/CombinedScreen.su ./Core/Src/UI/OrthogonalScreen.cyclo ./Core/Src/UI/OrthogonalScreen.d ./Core/Src/UI/OrthogonalScreen.o ./Core/Src/UI/OrthogonalScreen.su ./Core/Src/UI/ValuesScreen.cyclo ./Core/Src/UI/ValuesScreen.d ./Core/Src/UI/ValuesScreen.o ./Core/Src/UI/ValuesScreen.su
+	-$(RM) ./Core/Src/UI/OrthogonalScreen.cyclo ./Core/Src/UI/OrthogonalScreen.d ./Core/Src/UI/OrthogonalScreen.o ./Core/Src/UI/OrthogonalScreen.su ./Core/Src/UI/ValuesScreen.cyclo ./Core/Src/UI/ValuesScreen.d ./Core/Src/UI/ValuesScreen.o ./Core/Src/UI/ValuesScreen.su
 
 .PHONY: clean-Core-2f-Src-2f-UI
 

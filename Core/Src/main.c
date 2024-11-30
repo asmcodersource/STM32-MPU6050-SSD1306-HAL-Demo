@@ -57,11 +57,10 @@ void SystemClock_Config(void);
 #include "mpu6050.h"
 #include "ssd1306.h"
 #include "ssd1306_fonts.h"
-#include "UI/CombinedScreen.h"
 #include "UI/OrthogonalScreen.h"
 #include "UI/ValuesScreen.h"
 
-#define BUTTON_DEBOUNCE_DELAY 50
+#define BUTTON_DEBOUNCE_DELAY 20
 
 int buttonPressed(void);
 /* USER CODE END 0 */
@@ -111,11 +110,11 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	MPU6050_Read_All(&hi2c2, &MPU6050);
-	HAL_Delay (100);
+	HAL_Delay (50);
 
 	if (buttonPressed()) {
 		currentScreen++;
-		if (currentScreen > 3) {
+		if (currentScreen > 2) {
 			currentScreen = 0;
 		}
 	}
@@ -130,9 +129,6 @@ int main(void)
 			break;
 		case 2:
 			displayValuesScreen(MPU6050);
-			break;
-		case 3:
-			displayCombinedScreen(MPU6050);
 			break;
 	}
 	ssd1306_UpdateScreen();
@@ -181,7 +177,7 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 int buttonPressed(void) {
-    static uint8_t lastButtonState = GPIO_PIN_SET;
+    static uint8_t lastButtonState = GPIO_PIN_RESET;
     uint8_t currentButtonState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12);
 
 
